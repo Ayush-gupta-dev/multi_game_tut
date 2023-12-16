@@ -1,0 +1,22 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Ball game</h1>
+    <script>
+        let ws = new WebSocket("ws://localhost:9090")
+        ws.onmessage= messsage=>{
+            //message.data
+            const response = JSON.parse(messsage.data)
+            //connect
+            if(response.method==="connect"){
+                clientId = response.clientId;
+                console.log("id succ"+ clientId);
+            }
+        }
+    </script>
+</body>
+</html>
